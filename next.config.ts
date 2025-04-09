@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  experimental: {
+    reactRefresh: true, // Ensure Fast Refresh is enabled
+  },
 };
 
 export default nextConfig;

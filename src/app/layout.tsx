@@ -1,9 +1,18 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+
+import "@stream-io/video-react-sdk/dist/css/styles.css"
 import "./globals.css";
+
+import {
+  RedirectToSignIn,
+  SignedIn,
+  SignedOut
+} from '@clerk/nextjs'
 
 import ConvexClerkProvider from "@/components/providers/ConvexClerkProvider";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { Toaster } from "react-hot-toast";
 
 import Navbar from "@/components/Navbar";
 
@@ -41,14 +50,22 @@ export default function RootLayout({
             disableTransitionOnChange
           >
 
+            {/* Only show the website if signed in */}
+            <SignedIn>
+              <div className="min-h-screen">
+                <Navbar />
+                <main className="px-4 sm:px-6 lg:px-8">
+                  {children}
+                </main>
+              </div>
+            </SignedIn>
 
-            <div className="min-h-screen">
-              <Navbar />
-              <main className="px-4 sm:px-6 lg:px-8">
-                {children}
-              </main>
-            </div>
+            {/* Redirect to sign in if not logged in */}
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
           </ThemeProvider>
+          <Toaster />
         </body>
       </html>
     </ConvexClerkProvider>

@@ -6,6 +6,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "./ui/resizable";
 import { Button } from "./ui/button";
 import EndCallButton from "./EndCallButton";
+import CodeEditor from "./CodeEditor";
 
 const MeetingRoom = () => {
   const router = useRouter();
@@ -73,9 +74,7 @@ const MeetingRoom = () => {
                       <UsersIcon className="size-4" />
                     </Button>
 
-                    <Button>
-                      <EndCallButton />
-                    </Button>
+                    <EndCallButton />
                   </div>
               </div>
             </div>
@@ -86,7 +85,7 @@ const MeetingRoom = () => {
 
         {/* RHS */}
         <ResizablePanel defaultSize={65} minSize={25}>
-          <h1>code editor here</h1>
+          <CodeEditor />
         </ResizablePanel>
       </ResizablePanelGroup>
     </div>

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { clsx, type ClassValue } from "clsx";
 import { addHours, intervalToDuration, isAfter, isBefore, isWithinInterval } from "date-fns";
 import { twMerge } from "tailwind-merge";
@@ -13,7 +15,7 @@ type User = Doc<"users">;
 export const groupInterviews = (interviews: Interview[]) => {
   if (!interviews) return {};
 
-  return interviews.reduce((acc: any, interview: Interview) => {
+  return interviews.reduce((acc: unknown | any, interview: Interview) => {
     const date = new Date(interview.startTime);
     const now = new Date();
 

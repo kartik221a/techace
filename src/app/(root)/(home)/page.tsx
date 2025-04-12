@@ -1,8 +1,6 @@
 'use client'
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useQuery } from "convex/react";
-import { api } from "../../../../convex/_generated/api";
 import { useUserRole } from "@/hooks/useUserRole";
 import { QUICK_ACTIONS } from "@/constants";
 import ActionCard from "@/components/ActionCard";

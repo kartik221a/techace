@@ -15,7 +15,7 @@ import MeetingCard from "@/components/MeetingCard";
 import { Loader2Icon } from "lucide-react";
 
 // demo for subscription
-import { PriceTable } from "@clerk/nextjs"; // Import PriceTable from Clerk
+import { PricingTable } from '@clerk/nextjs' // Import PricingTable from Clerk
 
 export default function Home() {
   const router = useRouter();
@@ -107,7 +107,7 @@ export default function Home() {
         )}
       </div>
       <div>
-        <PriceTable />
+        <PricingTable />
       </div>
     </div>
   );
